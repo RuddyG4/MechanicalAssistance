@@ -3,7 +3,12 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Models\Users\Client;
+use App\Models\Users\Customer;
+use App\Models\Users\Mechanic;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -18,9 +23,12 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'email',
         'password',
+        'profile_photo_path',
+        'phone'
     ];
 
     /**
@@ -42,4 +50,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function customers(): HasOne
+    {
+        return $this->hasOne(Customer::class);
+    }
+    
+    public function client(): HasOne
+    {
+        return $this->hasOne(Client::class);
+    }
+    
+    public function mechanic(): HasOne
+    {
+        return $this->hasOne(Mechanic::class);
+    }
 }

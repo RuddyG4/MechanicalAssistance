@@ -16,11 +16,15 @@ return new class extends Migration
             $table->string('request_title', 50);
             $table->string('request_description');
             $table->string('request_location');
-            $table->char('request_state');
+            $table->char('request_state', 1)->default('O'); // O = open, C = closed, E = evaluating
             $table->timestamps();
 
             $table->unsignedInteger('customer_id');
             $table->foreign('customer_id')->references('id')->on('customers')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+            $table->unsignedInteger('vehicle_id');
+            $table->foreign('vehicle_id')->references('id')->on('vehicles')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
             $table->softDeletes();

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mechanical Assistance</title>
+    <link href="{{ asset('assets/fontawesome/css/all.css') }}" rel="stylesheet">
     @vite('resources/css/app.css')
 </head>
 
@@ -33,7 +34,6 @@
                             <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
                         </svg>
                     </button>
-
                     <!--
           'Product' flyout menu, show/hide based on flyout menu state.
 
@@ -135,12 +135,24 @@
                     </div>
                 </div>
 
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Features</a>
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Marketplace</a>
+                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">My vehicles</a>
+                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Workshops</a>
                 <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a>
             </div>
-            <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
+            <div class="hidden lg:flex lg:flex-1 lg:justify-end relative">
+                <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-dashboard/assets/img/drake.jpg" dropdown-trigger aria-expanded="false" alt="avatar image" class="inline-flex items-center justify-center w-10 h-10 mr-2 text-white transition-all duration-200 ease-in-out text-sm rounded-full cursor-pointer" />
+                <p class="hidden transform-dropdown-show"></p>
+                <ul dropdown-menu class="z-10 text-sm lg:shadow-soft-3xl duration-250 before:duration-350 before:font-awesome before:ease-soft min-w-44 before:text-5.5 transform-dropdown pointer-events-none absolute left-auto top-1/2 m-0 -mr-4 mt-2 list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-0 py-2 text-left text-slate-500 opacity-0 transition-all before:absolute before:right-7 before:left-auto before:top-0 before:z-40 before:text-white before:transition-all before:content-['\f0d8']">
+                    <li>
+                        <a class="py-1.2 lg:ease-soft clear-both block w-full whitespace-nowrap border-0 bg-transparent px-4 text-left font-normal text-slate-500 hover:bg-gray-200 hover:text-slate-700 dark:text-white dark:hover:bg-gray-200/80 dark:hover:text-slate-700 lg:transition-colors lg:duration-300" href="javascript:;">Action</a>
+                    </li>
+                    <li>
+                        <a class="py-1.2 lg:ease-soft clear-both block w-full whitespace-nowrap border-0 bg-transparent px-4 text-left font-normal text-slate-500 hover:bg-gray-200 hover:text-slate-700 dark:text-white dark:hover:bg-gray-200/80 dark:hover:text-slate-700 lg:transition-colors lg:duration-300" href="javascript:;">Another action</a>
+                    </li>
+                    <li>
+                        <a class="py-1.2 lg:ease-soft clear-both block w-full whitespace-nowrap border-0 bg-transparent px-4 text-left font-normal text-slate-500 hover:bg-gray-200 hover:text-slate-700 dark:text-white dark:hover:bg-gray-200/80 dark:hover:text-slate-700 lg:transition-colors lg:duration-300" href="javascript:;">Something else here</a>
+                    </li>
+                </ul>
             </div>
         </nav>
         <!-- Mobile menu, show/hide based on menu open state. -->
@@ -187,7 +199,7 @@
                             <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
                         </div>
                         <div class="py-6">
-                            <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>
+                            <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-dashboard/assets/img/drake.jpg" alt="avatar image" class="inline-flex items-center justify-center w-10 h-10 mr-2 text-white transition-all duration-200 ease-in-out text-sm rounded-full cursor-pointer" />
                         </div>
                     </div>
                 </div>
@@ -197,104 +209,7 @@
 
     <main class="mx-auto max-w-7xl p-6 lg:px-8">
         <section class="p-2 lg:p-8 flex flex-col lg:flex-row gap-8 justify-center rounded border">
-            <div class="w-full lg:w-1/2 border lg:py-8 lg:px-4">
-                <!-- This example requires some changes to your config:
-                ```
-                // tailwind.config.js
-                module.exports = {
-                    // ...
-                    plugins: [
-                        // ...
-                        require('@tailwindcss/forms'),
-                    ,
-                }
-                ```
-                -->
-                <form class="px-2">
-                    <div class="space-y-12">
-                        <div class="border-b border-gray-900/10 pb-12">
-                            <h2 class="text-base font-semibold leading-7 text-gray-900">New Request</h2>
-                            <p class="mt-1 text-sm leading-6 text-gray-600">Create a new request for get assistance</p>
-
-                            <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-6">
-                                <div class="col-span-full">
-                                    <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Request title</label>
-                                    <div class="mt-2">
-                                        <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-full">
-                                            <input type="text" name="username" id="username" autocomplete="username" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Title">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-span-full">
-                                    <label for="about" class="block text-sm font-medium leading-6 text-gray-900">Description</label>
-                                    <div class="mt-2">
-                                        <textarea id="about" name="about" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
-                                    </div>
-                                    <p class="mt-3 text-sm leading-6 text-gray-600">Describe the problems you have.</p>
-                                </div>
-
-                                <div class="col-span-full">
-                                    <label for="photo" class="block text-sm font-medium leading-6 text-gray-900">Add multimedia content</label>
-                                    <div class="mt-2 flex items-center gap-x-3">
-                                        <svg class="h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clip-rule="evenodd" />
-                                        </svg>
-                                        <button type="button" class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Upload a video</button>
-                                    </div>
-                                </div>
-
-                                <div class="col-span-full">
-                                    <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Upload photos</label>
-                                    <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                                        <div class="text-center">
-                                            <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                                <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
-                                            </svg>
-                                            <div class="mt-4 flex text-sm leading-6 text-gray-600">
-                                                <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
-                                                    <span>Upload a file</span>
-                                                    <input id="file-upload" name="file-upload" type="file" class="sr-only">
-                                                </label>
-                                                <p class="pl-1">or drag and drop</p>
-                                            </div>
-                                            <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="border-b border-gray-900/10 pb-6">
-                            <h2 class="text-base font-semibold leading-7 text-gray-900">Location</h2>
-                            <p class="mt-1 text-sm leading-6 text-gray-600">We need to get your location to provide you assistance.</p>
-
-                            <div class="mt-5 space-y-10">
-                                <fieldset>
-                                    <div class="mt-2 space-y-6">
-                                        <div class="relative flex gap-x-3">
-                                            <div class="flex h-6 items-center">
-                                                <input id="comments" name="comments" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                            </div>
-                                            <div class="text-sm leading-6">
-                                                <label for="comments" class="font-medium text-gray-900">Send my location</label>
-                                                <p class="text-gray-500">By clicking here, you accept to send your current location</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="my-4 flex items-center justify-end gap-x-6">
-                        <button type="button" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
-                        <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Send request</button>
-                    </div>
-                </form>
-
-            </div>
+            <livewire:requests.create-request />
             <div class="w-full lg:w-1/2 border">
                 <div class="grid place-items-center mt-4">
                     <h2 class="text-base font-semibold leading-7 text-gray-900">Latest Requests</h2>
@@ -307,91 +222,52 @@
                                 <th scope="col" class="px-6 py-4 font-medium text-gray-900">Title</th>
                                 <th scope="col" class="px-6 py-4 font-medium text-gray-900">Car</th>
                                 <th scope="col" class="px-6 py-4 font-medium text-gray-900">Date</th>
-                                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Rating</th>
+                                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Status</th>
                                 <th scope="col" class="px-6 py-4 font-medium text-gray-900"></th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-100 border-t border-gray-100">
+                            @foreach($requests as $request)
                             <tr class="hover:bg-gray-50">
-                                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                                    <div class="relative h-10 w-10">
+                                <th class="flex gap-3 p-4 font-normal text-gray-900">
+                                    <!-- <div class="relative h-10 w-10">
                                         <img class="h-full w-full rounded-full object-cover object-center" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
                                         <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                                    </div>
+                                    </div> -->
                                     <div class="text-sm">
-                                        <div class="font-medium text-gray-700">Steven Jobs</div>
-                                        <div class="text-gray-400">jobs@sailboatui.com</div>
+                                        <div class="font-medium text-gray-700">{{ $request->request_title }}</div>
+                                        <div class="text-gray-400">{{ $request->request_description }}</div>
                                     </div>
                                 </th>
-                                <td class="px-6 py-4">
-                                    <span class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600">
+                                <td class="px-2 py-4">
+                                    <div class="font-medium text-gray-700">{{ $request->vehicle->model }}</div>
+                                    <!-- <span class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600">
                                         <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
                                         Active
-                                    </span>
+                                    </span> -->
                                 </td>
-                                <td class="px-6 py-4">Product Designer</td>
-                                <td class="px-6 py-4">
+                                <td class="px-2 py-4">
+                                    <div class="font-medium text-gray-700">{{ $request->created_at->format('d-m-Y') }}</div>
+                                </td>
+                                <td class="px-2 py-4">
                                     <div class="flex gap-2">
-                                        <span class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-600">
-                                            Design
+                                        <span class="border border-green-500 inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600">
+                                            {{ $request->request_state }}
                                         </span>
+                                        <!-- <span class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-600">
+                                            Design
+                                        </span> -->
                                     </div>
                                 </td>
-                                <td class="px-6 py-4">
+                                <td class="px-2 py-4">
                                     <div class="flex justify-end gap-4">
-                                        <a x-data="{ tooltip: 'Delete' }" href="#">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6" x-tooltip="tooltip">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                            </svg>
-                                        </a>
-                                        <a x-data="{ tooltip: 'Edite' }" href="#">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6" x-tooltip="tooltip">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
-                                            </svg>
-                                        </a>
+                                        <button class="middle none center mr-3 flex items-center justify-center rounded-lg text-blue-500 border border-blue-500 p-3 font-sans text-xs font-bold uppercase text-blue-border-blue-500 transition-all hover:opacity-75 focus:ring focus:ring-blue-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" data-ripple-dark="true">
+                                            <i class="fa-regular fa-eye fa-lg"></i>
+                                        </button>
                                     </div>
                                 </td>
                             </tr>
-                            <tr class="hover:bg-gray-50">
-                                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                                    <div class="relative h-10 w-10">
-                                        <img class="h-full w-full rounded-full object-cover object-center" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-                                        <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                                    </div>
-                                    <div class="text-sm">
-                                        <div class="font-medium text-gray-700">Steven Jobs</div>
-                                        <div class="text-gray-400">jobs@sailboatui.com</div>
-                                    </div>
-                                </th>
-                                <td class="px-6 py-4">
-                                    <span class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600">
-                                        <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-                                        Active
-                                    </span>
-                                </td>
-                                <td class="px-6 py-4">Product Designer</td>
-                                <td class="px-6 py-4">
-                                    <div class="flex gap-2">
-                                        <span class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-600">
-                                            Design
-                                        </span>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="flex justify-end gap-4">
-                                        <a x-data="{ tooltip: 'Delete' }" href="#">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6" x-tooltip="tooltip">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                            </svg>
-                                        </a>
-                                        <a x-data="{ tooltip: 'Edite' }" href="#">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6" x-tooltip="tooltip">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
-                                            </svg>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

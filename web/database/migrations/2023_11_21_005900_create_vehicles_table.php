@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('plate', 7)->unique();
             $table->string('model', 40);
             $table->string('color', 10);
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->timestamps();
 
             $table->unsignedInteger('owner_id');

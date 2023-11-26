@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('customers', function (Blueprint $table) {
             $table->unsignedInteger('id');
             $table->foreign('id')->references('id')->on('users');
-            $table->string('customer_address');
+            $table->string('customer_address')->nullable();
             $table->primary('id');
             $table->softDeletes();
         });

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->unsignedInteger('id');
             $table->foreign('id')->references('id')->on('users');
             $table->string('speciality', 50);
-            $table->boolean('disponibility');
+            $table->boolean('disponibility')->default(true);
             
             $table->primary('id');
             $table->unsignedInteger('workshop_id');
