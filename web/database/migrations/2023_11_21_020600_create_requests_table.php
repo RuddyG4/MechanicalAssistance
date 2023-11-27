@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('request_title', 50);
             $table->string('request_description');
             $table->string('request_location');
+            $table->string('request_latitude');
+            $table->string('request_longitude');
             $table->char('request_state', 1)->default('O'); // O = open, C = closed, E = evaluating
             $table->timestamps();
 

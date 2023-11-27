@@ -17,6 +17,7 @@ class VehicleSeeder extends Seeder
             'plate' => 'ABC123',
             'model' => 'Land Cruiser',
             'color' => 'White',
+            'photo' => 'public/requests/OB6hI9PxXvrrg1s2n54oGUdyhkpl4ZiGg6fdHEQc.jpg',
             'owner_id' => 1,
             'brand_id' => 1,
             'vehicle_type_id' => 1
@@ -25,6 +26,7 @@ class VehicleSeeder extends Seeder
             'plate' => 'BCD123',
             'model' => 'Hilux',
             'color' => 'Red',
+            'photo' => 'public/requests/OB6hI9PxXvrrg1s2n54oGUdyhkpl4ZiGg6fdHEQa.jpg',
             'owner_id' => 1,
             'brand_id' => 1,
             'vehicle_type_id' => 1
@@ -34,6 +36,7 @@ class VehicleSeeder extends Seeder
             'plate' => 'XYZ123',
             'model' => 'Land Cruiser',
             'color' => 'White',
+            'photo' => 'public/requests/OB6hI9PxXvrrg1s2n54oGUdyhkpl4ZiGg6fdHEQc.jpg',
             'owner_id' => 2,
             'brand_id' => 1,
             'vehicle_type_id' => 1
@@ -42,6 +45,7 @@ class VehicleSeeder extends Seeder
             'plate' => 'PQR123',
             'model' => 'Hilux',
             'color' => 'Red',
+            'photo' => 'public/requests/OB6hI9PxXvrrg1s2n54oGUdyhkpl4ZiGg6fdHEQa.jpg',
             'owner_id' => 2,
             'brand_id' => 1,
             'vehicle_type_id' => 1

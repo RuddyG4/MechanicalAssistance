@@ -23,7 +23,7 @@
 
                 <div class="mt-6">
                     <div class="col-span-full">
-                        <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Request title</label>
+                        <label for="request_title" class="block text-sm font-medium leading-6 text-gray-900">Request title</label>
                         <div class="mt-2">
                             <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-full">
                                 <input type="text" wire:model="request_title" id="request_title" autocomplete="request_title" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Title">
@@ -35,9 +35,9 @@
                     </div>
 
                     <div class="col-span-full">
-                        <label for="about" class="block text-sm font-medium leading-6 text-gray-900">Description</label>
+                        <label for="request_description" class="block text-sm font-medium leading-6 text-gray-900">Description</label>
                         <div class="mt-2">
-                            <textarea id="about" wire:model="request_description" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                            <textarea id="request_description" wire:model="request_description" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
                         </div>
                         <p class="mt-3 text-sm leading-6 text-gray-600">Describe the problems you have.</p>
                         @error('request_description')
@@ -105,7 +105,7 @@
                         <div class="mt-2 space-y-6">
                             <div class="relative flex gap-x-3">
                                 <div class="flex h-6 items-center">
-                                    <input id="request_location" wire:model.live="request_location" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                    <input id="request_location" wire:model.live="request_location" wire:click="requestGeolocation" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
                                 </div>
                                 <div class="text-sm leading-6">
                                     <label for="request_location" class="font-medium text-gray-900">Send my location</label>
@@ -128,3 +128,49 @@
     </form>
 
 </div>
+@push('scripts')
+<script>
+    let geolocation = "";
+
+    function obtenerUbicacion() {
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitud = position.coords.latitude;
+                var longitud = position.coords.longitude;
+                geolocation = latitud + "," + longitud;
+
+                @this.dispatch('geolocationChanged', {
+                    geolocation: geolocation,
+                    latitude: latitud,
+                    longitude: longitud
+                });
+            }, function(error) {
+                // Manejar errores
+                switch (error.code) {
+                    case error.PERMISSION_DENIED:
+                        alert("El usuario denegó la solicitud de geolocalización.");
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        alert("La información de ubicación no está disponible.");
+                        break;
+                    case error.TIMEOUT:
+                        alert("La solicitud para obtener la ubicación del usuario ha caducado.");
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        alert("Ocurrió un error desconocido al obtener la ubicación.");
+                        break;
+                }
+            });
+        } else {
+            alert("La geolocalización no es compatible con este navegador.");
+        }
+    }
+
+    document.addEventListener('livewire:initialized', () => {
+        obtenerUbicacion();
+        @this.on('request-geolocation', (event) => {
+            obtenerUbicacion();
+       });
+    });
+</script>
+@endpush

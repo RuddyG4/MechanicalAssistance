@@ -12,4 +12,9 @@ class HomeController extends Controller
         $requests = ModelsRequest::where('customer_id', auth()->user()->id)->with('vehicle')->get();
         return view('front.customer-home', compact('requests'));
     }
+
+    public function workshopHome()
+    {
+        return view('front.workshop-home');
+    }
 }

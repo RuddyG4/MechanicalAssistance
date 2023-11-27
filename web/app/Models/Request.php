@@ -18,6 +18,8 @@ class Request extends Model
         'request_description',
         'vehicle_id',
         'request_location',
+        'request_latitude',
+        'request_longitude',
         'request_state',
         'customer_id'
     ];

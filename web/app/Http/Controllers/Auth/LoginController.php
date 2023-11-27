@@ -14,6 +14,11 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
+    public function showWorkshopLogin()
+    {
+        return view('auth.workshop-login');
+    }
+
     public function login(Request $request)
     {
         $credentials = $request->validate([
@@ -21,12 +26,28 @@ class LoginController extends Controller
             'password' => ['required']
         ]);
         if (!Auth::validate($credentials)) {
-            return redirect('login')->withErrors(['failedAuth' => 'El correo y/o contraseña son incorrectos, verifique e intente nuevamente']);
+            return back()->withErrors(['failedAuth' => 'El correo y/o contraseña son incorrectos, verifique e intente nuevamente']);
         }
-        $user = Auth::getProvider()->retrieveByCredentials($credentials); // Recupera la instancia User perteneciente a $credentials.
-        Auth::login($user);
+        $user = Auth::getProvider()->retrieveByCredentials($credentials);
 
-        return redirect()->intended('dashboard');
+        if ($request['loginType'] == 'workshop') {
+            $workshops = $user->client->workshops;
+            $workshopCount = $workshops->count();
+
+            if ($workshopCount <= 0) {
+                return back()->withErrors(['failedAuth' => 'No se puedo verificar sus credenciales, verifique e intente nuevamente']);
+            }
+
+            Auth::login($user);
+            if ($workshops->count() == 1) {
+                //add the workshop id to the session
+                $request->session()->put('workshop_id', $workshops[0]->id);
+                return redirect(route('workshop-home'));
+            }
+        } else {
+            Auth::login($user);
+            return redirect()->intended('/');
+        }
     }
 
     public function logout()

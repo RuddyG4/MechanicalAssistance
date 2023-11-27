@@ -15,9 +15,14 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             CustomerSeeder::class,
+            ClientSeeder::class,
+            WorkshopSeeder::class,
+            MechanicSeeder::class,
             BrandSeeder::class,
             VehicletypeSeeder::class,
-            VehicleSeeder::class
+            VehicleSeeder::class,
+            RequestSeeder::class,
+            MultimediaContentSeeder::class
         ]);
     }
 }

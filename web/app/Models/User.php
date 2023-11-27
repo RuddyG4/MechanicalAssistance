@@ -53,16 +53,16 @@ class User extends Authenticatable
 
     public function customers(): HasOne
     {
-        return $this->hasOne(Customer::class);
+        return $this->hasOne(Customer::class, 'id');
     }
     
     public function client(): HasOne
     {
-        return $this->hasOne(Client::class);
+        return $this->hasOne(Client::class, 'id');
     }
     
     public function mechanic(): HasOne
     {
-        return $this->hasOne(Mechanic::class);
+        return $this->hasOne(Mechanic::class, 'id');
     }
 }

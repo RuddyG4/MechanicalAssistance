@@ -44,9 +44,10 @@ class RequestController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ModelRequest $request)
+    public function show($requestId)
     {
-        //
+        $request = ModelRequest::with(['vehicle', 'multimedia', 'responses'])->find($requestId);
+        return view('requests.show', compact('request'));
     }
 
     /**
