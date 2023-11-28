@@ -31,7 +31,7 @@ class Workshop extends Model
         return $this->hasMany(Mechanic::class);
     }
 
-    public function responsees(): HasMany
+    public function responses(): HasMany
     {
         return $this->hasMany(Response::class);
     }

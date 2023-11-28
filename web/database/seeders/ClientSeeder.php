@@ -21,5 +21,13 @@ class ClientSeeder extends Seeder
             'id' => 6,
             'ci' => '234567891',
         ]);
+        Client::create([
+            'id' => 9,
+            'ci' => '123456788',
+        ]);
+        Client::create([
+            'id' => 10,
+            'ci' => '234567899',
+        ]);
     }
 }

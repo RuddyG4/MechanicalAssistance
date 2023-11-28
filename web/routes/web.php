@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RequestController;
+use App\Http\Controllers\RequestResponseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,9 +28,14 @@ Route::group(['middleware' => 'guest'], function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/workshops/requests/{id}', [RequestController::class, 'showAsWorkshop'])->name('requests.showAsWorkshop'); // muestra los requests disponibles a los workshops
+    Route::get('/workshops/{id}/requests', [RequestController::class, 'indexByWorkshop'])->name('requests.indexByWorkshop'); // muestra los requests aceptados de UN workshop
     Route::resource('/requests', RequestController::class);
+    Route::resource('requests.responses', \App\Http\Controllers\RequestResponseController::class)->shallow();
+    Route::resource('workshops.responses', \App\Http\Controllers\WorkshopResponseController::class);
     Route::get('/customer/{customer}/requests', [RequestController::class, 'indexByCustomer'])->name('requests.indexByCustomer');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::post('accept-response/{id}', [RequestResponseController::class, 'acceptResponse'])->name('acceptResponse');
 
     Route::get('/workshop-home', [HomeController::class, 'workshopHome'])->name('workshop-home');
 });

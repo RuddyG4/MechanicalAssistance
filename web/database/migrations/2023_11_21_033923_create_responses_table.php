@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedSmallInteger('aprox_solution_time'); // in minutes
             $table->unsignedSmallInteger('aprox_arrival_time'); // in minutes
             $table->decimal('pre_quote_amount', 10, 2, true)->default(0);
+            $table->char('response_state', 1)->default('W'); // W = waiting, A = accepted, I = in comming, C = completed
             $table->timestamps();
 
             $table->unsignedInteger('request_id');

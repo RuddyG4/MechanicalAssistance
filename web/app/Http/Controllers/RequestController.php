@@ -25,6 +25,17 @@ class RequestController extends Controller
         return view('requests.index-by-customer', compact('requests'));
     }
 
+    public function indexByWorkshop($workshop_id)
+    {
+        $requests = ModelRequest::whereHas('responses', function ($query) {
+            $query->where('workshop_id', session('workshop_id'))
+                ->where('response_state', 'A');
+        })
+            ->with('customer')
+            ->get();
+        return view('requests.index-by-workshop', compact('requests'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -46,8 +57,14 @@ class RequestController extends Controller
      */
     public function show($requestId)
     {
-        $request = ModelRequest::with(['vehicle', 'multimedia', 'responses'])->find($requestId);
+        $request = ModelRequest::with(['vehicle', 'multimedia', 'responses.workshop'])->find($requestId);
         return view('requests.show', compact('request'));
+    }
+
+    public function showAsWorkshop($requestId)
+    {
+        $request = ModelRequest::with(['vehicle.brand', 'multimedia'])->find($requestId);
+        return view('requests.show-as-workshop', compact('request'));
     }
 
     /**

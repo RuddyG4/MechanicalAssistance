@@ -28,7 +28,7 @@
             </div>
             <div class="hidden lg:flex lg:gap-x-12">
                 <a href="{{ route('home') }}" class="text-sm font-semibold leading-6 text-gray-900">Home</a>
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Jobs</a>
+                <a href="{{ route('requests.indexByWorkshop', session('workshop_id')) }}" class="text-sm font-semibold leading-6 text-gray-900">Jobs</a>
                 <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Mechanics</a>
                 <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a>
             </div>
@@ -62,7 +62,7 @@
                     <div class="-my-6 divide-y divide-gray-500/10">
                         <div class="space-y-2 py-6">
                             <a href="{{ route('home') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Home</a>
-                            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Jobs</a>
+                            <a href="{{ route('requests.indexByWorkshop', session('workshop_id')) }}" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Jobs</a>
                             <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Mechanics</a>
                             <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
                         </div>

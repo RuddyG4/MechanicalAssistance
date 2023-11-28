@@ -18,7 +18,7 @@ class WorkshopSeeder extends Seeder
             'workshop_address' => 'Calle 1',
             'workshop_location' => 'Sin ubicación',
             'workshop_state' => true,
-            'workshop_rating' => 0,
+            'workshop_rating' => 4,
             'client_id' => 5
         ]);
         
@@ -27,8 +27,25 @@ class WorkshopSeeder extends Seeder
             'workshop_address' => 'Av. Cañoto',
             'workshop_location' => 'Sin ubicación',
             'workshop_state' => true,
-            'workshop_rating' => 0,
+            'workshop_rating' => 3,
             'client_id' => 6
+        ]);
+        Workshop::create([
+            'workshop_name' => 'Workshop Mutualista',
+            'workshop_address' => 'Calle 1',
+            'workshop_location' => 'Sin ubicación',
+            'workshop_state' => true,
+            'workshop_rating' => 4,
+            'client_id' => 9
+        ]);
+        
+        Workshop::create([
+            'workshop_name' => 'Workshop Santa Cruz',
+            'workshop_address' => 'Av. Radial 19',
+            'workshop_location' => 'Sin ubicación',
+            'workshop_state' => true,
+            'workshop_rating' => 2,
+            'client_id' => 10
         ]);
     }
 }

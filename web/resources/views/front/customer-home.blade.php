@@ -1,12 +1,12 @@
 <x-layout>
     <section class="p-2 lg:p-8 flex flex-col lg:flex-row gap-8 justify-center rounded border">
         <livewire:requests.create-request />
-        <div class="w-full lg:w-1/2 border">
+        <div class="overflow-auto w-full lg:w-1/2 border">
             <div class="grid place-items-center mt-4">
                 <h2 class="text-base font-semibold leading-7 text-gray-900">Latest Requests</h2>
             </div>
             <!-- component -->
-            <div class="overflow-x-scroll rounded-lg border border-gray-200 shadow-md m-5">
+            <div class="rounded-lg border border-gray-200 shadow-md m-5">
                 <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
                     <thead class="bg-gray-50">
                         <tr>
@@ -42,7 +42,11 @@
                             </td>
                             <td class="px-2 py-4">
                                 <div class="flex gap-2">
-                                    <span class="border border-green-500 inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600">
+                                    <span @class([ 'border inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs font-semibold' , 'border-green-500 bg-green-50 text-green-600'=> $request->request_state == 'Open',
+                                        'border-yellow-500 bg-yellow-50 text-yellow-600'=> $request->request_state == 'Evaluating',
+                                        'border-blue-500 bg-blue-50 text-blue-600'=> $request->request_state == 'Assigned',
+                                        'border-gray-500 bg-gray-50 text-gray-600'=> $request->request_state == 'Closed'
+                                        ])>
                                         {{ $request->request_state }}
                                     </span>
                                     <!-- <span class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-600">

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Request extends Model
 {
@@ -38,6 +39,8 @@ class Request extends Model
                         return 'Closed';
                     case 'E':
                         return 'Evaluating';
+                    case 'A':
+                        return 'Assigned';
                 }
             },
         );
@@ -61,5 +64,10 @@ class Request extends Model
     public function vehicle(): BelongsTo
     {
         return $this->belongsTo(Vehicle::class);
+    }
+
+    public function acceptedResponse(): HasOne
+    {
+        return $this->hasOne(Response::class)->where('response_state', 'A');
     }
 }
