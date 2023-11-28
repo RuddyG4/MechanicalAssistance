@@ -34,7 +34,7 @@
                     <dt class="text-sm font-medium leading-6 text-gray-900">Location</dt>
                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
                         <a href="https://maps.google.com/?q={{ $request->request_location}}" target="_blank"><u class="text-blue-500">https://maps.google.com/?q={{ $request->request_location }}</u></a>
-                        {{--<iframe class="mt-6 h-96 w-1/2" style="border:0" Loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q={{ $request->request_location }}&key=AIzaSyANJhiUXi23_p9D8G8wKqMQSwhJJjy1vE4"></iframe>--}}
+                        {{--<iframe class="mt-6 h-96 w-1/2" style="border:0" Loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q={{ $request->request_location }}&key={{ ENV('GOOGLE_MAPS_KEY')}}"></iframe>--}}
                     </dd>
                 </div>
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
