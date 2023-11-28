@@ -2,17 +2,6 @@
     @if(session()->has('request created'))
     <div class="relative w-full p-4 text-white rounded-lg bg-lime-500">{{ session('request created') }}</div>
     @endif
-    <!-- This example requires some changes to your config:
-                ```
-                // tailwind.config.js
-                module.exports = {
-                    // ...
-                    plugins: [
-                        // ...
-                        require('@tailwindcss/forms'),
-                    ,
-                }
-                ``` -->
     <form wire:submit.prevent="store" class="px-2">
         <div class="space-y-6">
             <div class="border-b border-gray-900/10 pb-6">
@@ -119,7 +108,7 @@
                     </fieldset>
                 </div>
 
-                <iframe class="mt-6 h-96 w-full" style="border:0" Loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q={{ $geolocation }}&key={{ ENV('GOOGLE_MAPS_KEY')}}"></iframe>
+                {{--<iframe class="mt-6 h-96 w-full" style="border:0" Loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q={{ $geolocation }}&key={{ ENV('GOOGLE_MAPS_KEY')}}"></iframe>--}}
             </div>
         </div>
 

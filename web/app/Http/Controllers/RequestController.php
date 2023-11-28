@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Request as ModelRequest;
 use App\Models\Users\Customer;
+use App\Models\Workshop;
 use Illuminate\Http\Request;
 
 class RequestController extends Controller
@@ -29,11 +30,12 @@ class RequestController extends Controller
     {
         $requests = ModelRequest::whereHas('responses', function ($query) {
             $query->where('workshop_id', session('workshop_id'))
-                ->where('response_state', 'A');
+                ->where('response_state', '<>', 'W');
         })
             ->with('customer')
             ->get();
-        return view('requests.index-by-workshop', compact('requests'));
+        $workshop = Workshop::where('id', session('workshop_id'))->first();
+        return view('requests.index-by-workshop', compact('requests', 'workshop'));
     }
 
     /**
@@ -64,7 +66,8 @@ class RequestController extends Controller
     public function showAsWorkshop($requestId)
     {
         $request = ModelRequest::with(['vehicle.brand', 'multimedia'])->find($requestId);
-        return view('requests.show-as-workshop', compact('request'));
+        $workshop = Workshop::where('id', session('workshop_id'))->first();
+        return view('requests.show-as-workshop', compact('request', 'workshop'));
     }
 
     /**

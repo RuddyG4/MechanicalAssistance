@@ -68,6 +68,6 @@ class Request extends Model
 
     public function acceptedResponse(): HasOne
     {
-        return $this->hasOne(Response::class)->where('response_state', 'A');
+        return $this->hasOne(Response::class)->where('response_state', '<>', 'W');
     }
 }

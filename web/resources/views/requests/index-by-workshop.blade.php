@@ -1,4 +1,4 @@
-<x-workshop-layout>
+<x-workshop-layout :workshop="$workshop">
     <div class="overflow-x-auto rounded-lg border border-gray-200 shadow-md m-2">
         <div class="px-6 py-4 text-gray-900">
             <div class="flex items-center gap-x-3">

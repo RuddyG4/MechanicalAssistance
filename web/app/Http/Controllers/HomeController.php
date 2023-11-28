@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Request as ModelsRequest;
+use App\Models\Workshop;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -15,6 +16,9 @@ class HomeController extends Controller
 
     public function workshopHome()
     {
-        return view('front.workshop-home');
+        return view('front.workshop-home',
+    [
+        'workshop' => Workshop::where('id', session('workshop_id'))->first()
+    ]);
     }
 }
