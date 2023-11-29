@@ -108,7 +108,7 @@
                     </fieldset>
                 </div>
 
-                {{--<iframe class="mt-6 h-96 w-full" style="border:0" Loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q={{ $geolocation }}&key={{ ENV('GOOGLE_MAPS_KEY')}}"></iframe>--}}
+                <iframe class="mt-6 h-96 w-full" style="border:0" Loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q={{ $geolocation }}&key={{ ENV('GOOGLE_MAPS_KEY')}}"></iframe>
             </div>
         </div>
 
