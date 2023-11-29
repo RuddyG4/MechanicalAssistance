@@ -19,7 +19,7 @@
                         <button type="submit" @disabled($response->request->request_state != 'Open') @class(["px-3 md:px-4 py-1 md:py-2 border border-green-600 text-green-700 rounded-lg hover:border-green-900 hover:bg-green-50"])><i class="fa-solid fa-check"></i> &nbsp;accept response</button>
                     </form>
                     @endif
-                    <a class="px-3 md:px-4 py-1 md:py-2 border border-sky-600 text-sky-700 rounded-lg hover:border-sky-900 hover:bg-sky-50"><i class="fa-regular fa-building fa-lg text-sky-700"></i> &nbsp;View workshop</a>
+                    <a href="{{ route('showWorkshopAsCustomer', $response->workshop_id) }}" class="px-3 md:px-4 py-1 md:py-2 border border-sky-600 text-sky-700 rounded-lg hover:border-sky-900 hover:bg-sky-50"><i class="fa-regular fa-building fa-lg text-sky-700"></i> &nbsp;View workshop</a>
                 </div>
             </div>
         </div>

@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\RequestResponseController;
+use App\Http\Controllers\WorkshopController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/customer/{customer}/requests', [RequestController::class, 'indexByCustomer'])->name('requests.indexByCustomer');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::post('accept-response/{id}', [RequestResponseController::class, 'acceptResponse'])->name('acceptResponse');
+    Route::get('/workshop/{workshop}', [WorkshopController::class, 'show'])->name('showWorkshopAsCustomer'); //muestra un taller (vista para customers)
 
     Route::get('/workshop-home', [HomeController::class, 'workshopHome'])->name('workshop-home');
 });
